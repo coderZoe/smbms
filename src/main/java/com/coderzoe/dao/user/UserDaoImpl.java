@@ -43,4 +43,17 @@ public class UserDaoImpl implements UserDao{
         }
         return user;
     }
+
+    @Override
+    public int updateUserPassword(Connection connection, long id, String password) {
+        try {
+            String sql = "update smbms_user set userPassword =? where id = ?";
+            Object[] params ={password,id};
+            return BaseDao.executeUpdate(connection,sql,params);
+        } catch (SQLException e) {
+            BaseDao.release(null,connection);
+            e.printStackTrace();
+            return -1;
+        }
+    }
 }

@@ -20,4 +20,12 @@ public interface UserDao {
      * @description: 得到要登陆的用户
      */
     User getLoginUser(Connection connection,String userCode);
+
+    /**
+     * @data: 2020/06/20 11:22
+     * @author: yhs
+     * @return: int
+     * @description: 修改用户密码
+     */
+    int updateUserPassword(Connection connection,long id, String password);
 }

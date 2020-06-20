@@ -22,7 +22,7 @@
 						<font color="red"></font>
                     </div>
                     <div>
-                        <label for="reNewPassword">确认新密码：</label>
+                        <label for="rnewpassword">确认新密码：</label>
                         <input type="password" name="rnewpassword" id="rnewpassword" value=""> 
 						<font color="red"></font>
                     </div>

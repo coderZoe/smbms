@@ -124,7 +124,7 @@ public class BaseDao {
             preparedStatement.setObject(i+1,params[i]);
         }
         int result = preparedStatement.executeUpdate();
-        BaseDao.release(preparedStatement,connection);
+//        BaseDao.release(preparedStatement,connection);
         return result;
     }
 }

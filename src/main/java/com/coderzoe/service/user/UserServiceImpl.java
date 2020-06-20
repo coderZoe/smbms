@@ -26,6 +26,17 @@ public class UserServiceImpl implements UserService{
         return userDao.getLoginUser(connection, userCode);
     }
 
+    @Override
+    public boolean updateUserPassword(long id, String password) {
+        Connection connection = BaseDao.getConnection();
+        int result = userDao.updateUserPassword(connection, id, password);
+        if(result>0){
+            return true;
+        }else {
+            return false;
+        }
+    }
+
     /**
      * @data: 2020/06/18 22:12
      * @author: yhs
