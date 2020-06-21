@@ -7,6 +7,7 @@ import com.coderzoe.entity.User;
 import org.junit.Test;
 
 import java.sql.Connection;
+import java.util.List;
 
 /**
  * @author yhs
@@ -37,6 +38,18 @@ public class UserServiceImpl implements UserService{
         }
     }
 
+    @Override
+    public int getUserCount(String userName, long role) {
+        Connection connection = BaseDao.getConnection();
+        return userDao.getUserCount(connection, userName, role);
+    }
+
+    @Override
+    public List<User> getUserListByPage(String userName, long role, int currentPageNum, int pageSize) {
+        Connection connection = BaseDao.getConnection();
+        return userDao.getUserList(connection,userName,role,currentPageNum,pageSize);
+    }
+
     /**
      * @data: 2020/06/18 22:12
      * @author: yhs
@@ -45,6 +58,6 @@ public class UserServiceImpl implements UserService{
      */
     @Test
     public void test(){
-        System.out.println(login("admin","1234567").getUserName());
+        System.out.println(getUserListByPage(null,0,1,10));
     }
 }
